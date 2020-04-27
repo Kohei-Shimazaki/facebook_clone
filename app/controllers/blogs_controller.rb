@@ -14,9 +14,12 @@ class BlogsController < ApplicationController
 
   # GET /blogs/new
   def new
-    @blog = Blog.new
+    if params[:back]
+      @blog = Blog.new(blog_params)
+    else
+      @blog = Blog.new
+    end
   end
-
   # GET /blogs/1/edit
   def edit
   end
@@ -60,7 +63,9 @@ class BlogsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def confirm
+    @blog = Blog.new(blog_params)
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
