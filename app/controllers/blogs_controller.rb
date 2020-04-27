@@ -65,6 +65,7 @@ class BlogsController < ApplicationController
   end
   def confirm
     @blog = Blog.new(blog_params)
+    render :new if @blog.invalid?
   end
   private
     # Use callbacks to share common setup or constraints between actions.
