@@ -7,7 +7,7 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= @blog.picture %>
+  <%= image_tag @blog.picture.url %>
 </p>
 
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
