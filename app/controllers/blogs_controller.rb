@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-
+  before_action :autenicate_user, only: [:index, :show, :new, :create, :edit, :update]
   # GET /blogs
   # GET /blogs.json
   def index
@@ -68,12 +68,16 @@ class BlogsController < ApplicationController
   end
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_blog
-      @blog = Blog.find(params[:id])
-    end
-
+  def set_blog
+    @blog = Blog.find(params[:id])
+  end
     # Only allow a list of trusted parameters through.
-    def blog_params
-      params.require(:blog).permit(:content, :picture, :picture_cache)
+  def blog_params
+    params.require(:blog).permit(:content, :picture, :picture_cache)
+  end
+  def autenicate_user
+    if current_user == nil
+      redirect_to sessions_new_path, notice: "ログイン、またはサインアップして下さい"
     end
+  end
 end
