@@ -16,6 +16,7 @@
     <%= image_tag @blog.picture.url %>
   <% end %>
 </p>
+<p><%= l @blog.updated_at %></p>
 <% if current_user.id == @blog.user_id %>
   <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <% end %>
