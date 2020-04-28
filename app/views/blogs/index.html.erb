@@ -15,7 +15,7 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><%= blog.user.name %></td>
+        <td><%= blog.user_id %></td>
         <td><%= blog.content %></td>
         <td>
           <% if blog.picture.present? %>
@@ -23,8 +23,10 @@
           <% end %>
         </td>
         <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.id == blog.user_id %>
+          <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+          <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
