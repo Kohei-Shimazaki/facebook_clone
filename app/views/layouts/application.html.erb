@@ -9,7 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <header class="header">
+    <%= link_to choose_login_or_home do %>
+      <img src="/images/Home.png">
+    <% end %>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
@@ -20,6 +23,8 @@
       <%= link_to 'Sign up', new_user_path %>
       <%= link_to 'Login', new_session_path %>
     <% end %>
+  </header>
+  <body>
     <%= yield %>
   </body>
 </html>
