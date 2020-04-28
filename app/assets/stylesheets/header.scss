@@ -1,0 +1,30 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  background-color: #40e0d0;
+}
+.header img {
+  height: 40px;
+  padding: 5px 20px;
+  float: left;
+}
+.flash {
+  margin-top: 10px;
+  color: black;
+}
+.header_menu li {
+  float: left;
+  list-style: none;
+}
+.header_menu li a {
+  padding: 5px 10px 10px 10px;
+  display: block;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}

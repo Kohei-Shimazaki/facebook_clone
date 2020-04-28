@@ -9,21 +9,26 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="header">
+  <header class="header clearfix">
     <%= link_to choose_login_or_home do %>
-      <img src="/images/Home.png">
+      <img src="/images/Home.png" class="header_image">
     <% end %>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <% if logged_in? %>
-      <%= link_to 'Profile', user_path(current_user.id) %>
-      <%= link_to 'Logout', session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to 'Sign up', new_user_path %>
-      <%= link_to 'Login', new_session_path %>
-    <% end %>
+    <nav>
+      <ul class="header_menu">
+        <% if logged_in? %>
+          <li><%= link_to 'Profile', user_path(current_user.id) %></li>
+          <li><%= link_to 'Logout', session_path(current_user.id), method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign up', new_user_path %></li>
+          <li><%= link_to 'Login', new_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
   </header>
+  <div class="flash">
+    <%= flash[:notice] %>
+    <%= flash[:danger] %>
+  </div>
   <body>
     <%= yield %>
   </body>
