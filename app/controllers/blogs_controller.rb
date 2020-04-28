@@ -31,7 +31,7 @@ class BlogsController < ApplicationController
     @blog = current_user.blogs.build(blog_params)
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.html { redirect_to @blog, notice: 'ブログを作成しました！' }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        format.html { redirect_to @blog, notice: 'ブログを更新しました！' }
         format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
+      format.html { redirect_to blogs_url, notice: 'ブログを削除しました！' }
       format.json { head :no_content }
     end
   end
@@ -78,12 +78,12 @@ class BlogsController < ApplicationController
   end
   def jump_to_login
     if current_user == nil
-      redirect_to sessions_new_path, notice: "ログイン、またはサインアップして下さい"
+      redirect_to sessions_new_path, notice: "ログイン、またはサインアップして下さい！"
     end
   end
   def authenticate_user
     if current_user.id != Blog.find(params[:id]).user_id
-      redirect_to blogs_path, notice: "他のユーザのブログは編集できません"
+      redirect_to blogs_path, notice: "他のユーザのブログは編集できません！"
     end
   end
 end
