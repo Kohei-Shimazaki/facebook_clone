@@ -1,7 +1,11 @@
 <h1>確認画像</h1>
 <%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
-  <%= @blog.content %>
-  <%= image_tag(@blog.picture.url) if @blog.picture && @blog.picture.url %>
+  <p>
+    <%= @blog.content %>
+  </p>
+  <p>
+    <%= image_tag(@blog.picture.url) if @blog.picture && @blog.picture.url %>
+  </p>
   <%= form.hidden_field :content %>
   <%= form.hidden_field :picture_cache %>
   <%= form.submit "投稿する" %>
