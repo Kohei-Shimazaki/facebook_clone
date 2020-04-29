@@ -1,5 +1,7 @@
-<h1>New Blog</h1>
+<h1>新規投稿</h1>
 
 <%= render 'form', blog: @blog %>
 
-<%= link_to 'Back', blogs_path %>
+<%= link_to blogs_path, class: "btn-sm btn-info" do %>
+  <img src="/images/blogs.png" class="link_image"><span>Blogs</span>
+<% end %>
