@@ -3,27 +3,4 @@
   <%= link_to '新規投稿はコチラ', new_blog_path %>
 </p>
 <br>
-<div class="container">
-  <% @blogs.reverse.each do |blog| %>
-    <%= link_to blog_path(blog.id), class: "show_link" do %>
-      <div class="blog_content row">
-        <p>
-          <strong><%= blog.user.name %></strong>
-          <span class="updated_at"><%= time_delta(blog.updated_at) %></span>
-        </p>
-        <p><%= blog.content %></p>
-        <% if blog.picture.present? %>
-          <p><%= image_tag blog.picture.url %></p>
-        <% end %>
-        <% if current_user.id == blog.user_id %>
-          <%= link_to edit_blog_path(blog.id), class: "btn-sm btn-info" do %>
-            <img src="/images/edit.png" class="link_image"><span>Edit</span>
-          <% end %>
-          <%= link_to blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-sm btn-danger" do %>
-            <img src="/images/destroy.png" class="link_image"><span>Destroy</span>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+<%= render 'index_form', blog: @blogs %>
