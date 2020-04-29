@@ -83,3 +83,8 @@ div {
 label {
   display: block;
 }
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}

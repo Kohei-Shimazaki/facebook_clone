@@ -25,11 +25,11 @@
       </ul>
     </nav>
   </header>
-  <div class="flash">
-    <%= flash[:notice] %>
-    <%= flash[:danger] %>
-  </div>
   <body>
+    <div class="flash">
+      <%= flash[:notice] %>
+      <%= flash[:danger] %>
+    </div>
     <%= yield %>
   </body>
 </html>

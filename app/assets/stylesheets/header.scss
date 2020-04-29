@@ -5,6 +5,7 @@
   margin: 0;
   width: 100%;
   background-color: #40e0d0;
+  height: 50px;
 }
 .header img {
   height: 40px;
@@ -12,7 +13,7 @@
   float: left;
 }
 .flash {
-  margin-top: 10px;
+  margin-top: 50px;
 }
 .header_menu li {
   float: left;
@@ -21,9 +22,4 @@
 .header_menu li a {
   padding: 5px 10px 10px 10px;
   display: block;
-}
-.clearfix:after {
-  content: "";
-  display: block;
-  clear: both;
 }
