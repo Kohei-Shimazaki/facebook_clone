@@ -11,7 +11,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
-gem 'carrierwave'
 gem 'mini_magick'
 gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
@@ -22,6 +21,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'carrierwave'
 end
 group :test do
   gem 'capybara', '>= 2.15'
