@@ -1,21 +1,25 @@
 <p>
-  <strong>User:</strong>
-  <%= @blog.user_id %>
+  User:<strong><%= @blog.user.name %></strong>
 </p>
-
 <p>
-  <strong>Content:</strong>
   <%= @blog.content %>
 </p>
-
 <p>
-  <strong>Picture:</strong>
   <% if @blog.picture.present? %>
     <%= image_tag @blog.picture.url %>
   <% end %>
 </p>
-<p><%= l @blog.updated_at %></p>
-<% if current_user.id == @blog.user_id %>
-  <%= link_to 'Edit', edit_blog_path(@blog) %> |
-<% end %>
-<%= link_to 'Back', blogs_path %>
+<p>updated_at:<%= l @blog.updated_at %></p>
+<p>
+  <%= link_to edit_blog_path(@blog.id), class: "btn-sm btn-info" do %>
+    <img src="/images/edit.png" class="link_image"><span>Edit</span>
+  <% end %>
+  <%= link_to blog_path(@blog.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-sm btn-danger" do %>
+    <img src="/images/destroy.png" class="link_image"><span>Destroy</span>
+  <% end %>
+</p>
+<p>
+  <%= link_to blogs_path, class: "btn-sm btn-info" do %>
+    <img src="/images/blogs.png" class="link_image"><span>Blogs</span>
+  <% end %>
+</p>

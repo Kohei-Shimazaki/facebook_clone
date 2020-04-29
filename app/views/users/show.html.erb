@@ -1,9 +1,14 @@
 <h1><%= @user.name %>のページ</h1>
 <h3>メールアドレス: <%= @user.email %></h3>
 <p>
-<%= link_to blogs_path, class: "btn-sm btn-info" do %>
-  <img src="/images/blogs.png" class="link_image"><span>Blogs</span>
-<% end %>
+  <%= link_to new_blog_path, class: "btn-sm btn-success" do %>
+    <img src="/images/new.png" class="link_image"><span>New</span>
+  <% end %>
+</p>
+<p>
+  <%= link_to blogs_path, class: "btn-sm btn-info" do %>
+    <img src="/images/blogs.png" class="link_image"><span>Blogs</span>
+  <% end %>
 </p>
 <br>
 <%= render partial: 'blogs/index_form' %>

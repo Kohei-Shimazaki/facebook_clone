@@ -1,6 +1,8 @@
 <h1>Blogs</h1>
-<p class="new_link">
-  <%= link_to '新規投稿はコチラ', new_blog_path %>
+<p>
+  <%= link_to new_blog_path, class: "btn-sm btn-success" do %>
+    <img src="/images/new.png" class="link_image"><span>New</span>
+  <% end %>
 </p>
 <br>
 <%= render 'index_form', blog: @blogs %>
