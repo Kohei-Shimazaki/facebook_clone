@@ -8,7 +8,9 @@
   </p>
   <%= form.hidden_field :content %>
   <%= form.hidden_field :picture_cache %>
-  <%= form.submit "投稿する" %>
+  <p>
+    <%= form.submit "投稿する" %>
+  </p>
 <% end %>
 <%= form_with(model: @blog, url: new_blog_path, local: true, method: "get") do |form| %>
   <%= form.hidden_field :content %>
