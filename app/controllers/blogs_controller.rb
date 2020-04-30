@@ -78,7 +78,7 @@ class BlogsController < ApplicationController
   end
   def jump_to_login
     if current_user == nil
-      redirect_to sessions_new_path, notice: "ログイン、またはサインアップして下さい！"
+      redirect_to sessions_new_path, notice: "ログインして下さい！"
     end
   end
   def authenticate_user
