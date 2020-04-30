@@ -1,8 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  before_action :jump_to_login, only: [:index, :show, :new, :create, :edit, :update]
-  before_action :authenticate_user, only: [:edit, :update, :destroy]
-  # GET /blogs
+  before_action :authenticate_user, only: [:index, :show, :new, :create, :edit, :update]
+  before_action :jump_to_blogs, only: [:edit, :update, :destroy]
   # GET /blogs.json
   def index
     @blogs = Blog.all
@@ -76,12 +75,12 @@ class BlogsController < ApplicationController
   def blog_params
     params.require(:blog).permit(:content, :picture, :picture_cache)
   end
-  def jump_to_login
+  def authenticate_user
     if current_user == nil
       redirect_to sessions_new_path, notice: "ログインして下さい！"
     end
   end
-  def authenticate_user
+  def jump_to_blogs
     if current_user.id != Blog.find(params[:id]).user_id
       redirect_to blogs_path, notice: "他のユーザのブログは編集できません！"
     end
